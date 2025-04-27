@@ -1,0 +1,281 @@
+/* Basic setup */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  display: inline-block;
+}
+
+/* --- Grid Container --- */
+.hex-grid {
+  display: grid;
+  grid-template-columns: repeat(14, 40px);
+  grid-auto-rows: 69.3px;
+  width: min-content;
+  margin: auto;
+  padding-bottom: 23.1px;
+}
+
+/* --- Hexagon Shape and Base Styling --- */
+.hexagon {
+  position: relative;
+  width: 80px;
+  height: 92.38px;
+  box-sizing: border-box;
+
+  background-color: black; /* Border color */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: default;
+
+  /* --- Grid Item Properties --- */
+  grid-column: span 2;
+  transform: translateY(-23.1px);
+}
+
+/* Inner part with background color */
+.hexagon::before {
+  content: "";
+  position: absolute;
+  top: 2px; /* Border width */
+  left: 2px; /* Border width */
+  right: 2px; /* Border width */
+  bottom: 2px; /* Border width */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #f5f5dc;
+  z-index: 1;
+}
+
+/* Text */
+.hexagon span {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Color Classes --- */
+.hexagon.hex-red::before {
+  background-color: #dc143c; /* Crimson Red */
+}
+
+.hexagon.hex-green::before {
+  background-color: #228b22; /* Forest Green */
+}
+
+.hexagon.hex-content::before {
+  background-color: #f5f5dc; /* Beige */
+}
+
+/* --- Manual Grid Placement --- */
+
+.hexagon:nth-of-type(1) {
+  grid-row: 1;
+  grid-column-start: 13;
+}
+.hexagon:nth-of-type(2) {
+  grid-row: 1;
+  grid-column-start: 5;
+}
+.hexagon:nth-of-type(3) {
+  grid-row: 1;
+  grid-column-start: 7;
+}
+.hexagon:nth-of-type(4) {
+  grid-row: 1;
+  grid-column-start: 9;
+}
+.hexagon:nth-of-type(5) {
+  grid-row: 1;
+  grid-column-start: 11;
+}
+
+/* Row 1 (Indices 6-12) - Offset (Start Col 2) */
+.hexagon:nth-of-type(6) {
+  grid-row: 2;
+  grid-column-start: 2;
+}
+.hexagon:nth-of-type(7) {
+  grid-row: 2;
+  grid-column-start: 4;
+}
+.hexagon:nth-of-type(8) {
+  grid-row: 2;
+  grid-column-start: 6;
+}
+.hexagon:nth-of-type(9) {
+  grid-row: 2;
+  grid-column-start: 8;
+}
+.hexagon:nth-of-type(10) {
+  grid-row: 2;
+  grid-column-start: 10;
+}
+.hexagon:nth-of-type(11) {
+  grid-row: 2;
+  grid-column-start: 12;
+}
+.hexagon:nth-of-type(12) {
+  grid-row: 2;
+  grid-column-start: 14;
+}
+
+/* Row 2 (Indices 13-19) - Not Offset (Start Col 1) */
+.hexagon:nth-of-type(13) {
+  grid-row: 3;
+  grid-column-start: 1;
+}
+.hexagon:nth-of-type(14) {
+  grid-row: 3;
+  grid-column-start: 3;
+}
+.hexagon:nth-of-type(15) {
+  grid-row: 3;
+  grid-column-start: 5;
+}
+.hexagon:nth-of-type(16) {
+  grid-row: 3;
+  grid-column-start: 7;
+}
+.hexagon:nth-of-type(17) {
+  grid-row: 3;
+  grid-column-start: 9;
+}
+.hexagon:nth-of-type(18) {
+  grid-row: 3;
+  grid-column-start: 11;
+}
+.hexagon:nth-of-type(19) {
+  grid-row: 3;
+  grid-column-start: 13;
+}
+
+/* Row 3 (Indices 20-26) - Offset (Start Col 2) */
+.hexagon:nth-of-type(20) {
+  grid-row: 4;
+  grid-column-start: 2;
+}
+.hexagon:nth-of-type(21) {
+  grid-row: 4;
+  grid-column-start: 4;
+}
+.hexagon:nth-of-type(22) {
+  grid-row: 4;
+  grid-column-start: 6;
+}
+.hexagon:nth-of-type(23) {
+  grid-row: 4;
+  grid-column-start: 8;
+}
+.hexagon:nth-of-type(24) {
+  grid-row: 4;
+  grid-column-start: 10;
+}
+.hexagon:nth-of-type(25) {
+  grid-row: 4;
+  grid-column-start: 12;
+}
+.hexagon:nth-of-type(26) {
+  grid-row: 4;
+  grid-column-start: 14;
+}
+
+/* Row 4 (Indices 27-33) - Not Offset (Start Col 1) */
+.hexagon:nth-of-type(27) {
+  grid-row: 5;
+  grid-column-start: 1;
+}
+.hexagon:nth-of-type(28) {
+  grid-row: 5;
+  grid-column-start: 3;
+}
+.hexagon:nth-of-type(29) {
+  grid-row: 5;
+  grid-column-start: 5;
+}
+.hexagon:nth-of-type(30) {
+  grid-row: 5;
+  grid-column-start: 7;
+}
+.hexagon:nth-of-type(31) {
+  grid-row: 5;
+  grid-column-start: 9;
+}
+.hexagon:nth-of-type(32) {
+  grid-row: 5;
+  grid-column-start: 11;
+}
+.hexagon:nth-of-type(33) {
+  grid-row: 5;
+  grid-column-start: 13;
+}
+
+/* Row 5 (Indices 34-40) - Offset (Start Col 2) */
+.hexagon:nth-of-type(34) {
+  grid-row: 6;
+  grid-column-start: 2;
+}
+.hexagon:nth-of-type(35) {
+  grid-row: 6;
+  grid-column-start: 4;
+}
+.hexagon:nth-of-type(36) {
+  grid-row: 6;
+  grid-column-start: 6;
+}
+.hexagon:nth-of-type(37) {
+  grid-row: 6;
+  grid-column-start: 8;
+}
+.hexagon:nth-of-type(38) {
+  grid-row: 6;
+  grid-column-start: 10;
+}
+.hexagon:nth-of-type(39) {
+  grid-row: 6;
+  grid-column-start: 12;
+}
+.hexagon:nth-of-type(40) {
+  grid-row: 6;
+  grid-column-start: 14;
+}
+
+/* Row 6 (Indices 41-47) - Centered (Start Col 3) */
+.hexagon:nth-of-type(41) {
+  grid-row: 7;
+  grid-column-start: 3;
+}
+.hexagon:nth-of-type(42) {
+  grid-row: 7;
+  grid-column-start: 5;
+}
+.hexagon:nth-of-type(43) {
+  grid-row: 7;
+  grid-column-start: 7;
+}
+.hexagon:nth-of-type(44) {
+  grid-row: 7;
+  grid-column-start: 9;
+}
+.hexagon:nth-of-type(45) {
+  grid-row: 7;
+  grid-column-start: 11;
+}
+.hexagon:nth-of-type(46) {
+  grid-row: 7;
+  grid-column-start: 13;
+}
+.hexagon:nth-of-type(47) {
+  grid-row: 1;
+  grid-column-start: 3;
+}
